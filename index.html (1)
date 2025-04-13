@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="موقع لتحديد موقعك عبر عنوان الـ IP مع دعم الخريطة واللغتين العربية والإنجليزية." />
+  <meta name="keywords" content="IP location, geolocation, map, Arabic, English, موقع, تحديد, IP" />
+  <meta name="author" content="IP Locator" />
+  <meta name="theme-color" content="#8e44ad" />
+  <title>تحديد الموقع عبر IP</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238e44ad'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <button id="lang-toggle" class="btn btn-small" onclick="toggleLanguage()">English</button>
+    </div>
+    <h1 class="logo" id="main-title">تحديد الموقع عبر IP</h1>
+  </header>
+
+  <main>
+    <div class="card search-container">
+      <div class="input-group">
+        <input 
+          type="text" 
+          id="ip-input" 
+          placeholder="أدخل عنوان IP أو اتركه فارغًا لعنوانك" 
+          aria-label="IP address"
+        />
+        <div id="validation-message" class="validation-message">الرجاء إدخال عنوان IP صحيح</div>
+      </div>
+      <button id="locate-btn" class="btn" onclick="locateIP()">تحقق الآن</button>
+    </div>
+
+    <div class="loader" id="loader">
+      <div class="spinner"></div>
+      <p id="loading-text">جاري تحميل البيانات...</p>
+    </div>
+
+    <div id="error-message" class="error-message"></div>
+
+    <div id="results" class="card">
+      <div class="info-container" id="info-container"></div>
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p id="footer-text">© 2025 تحديد الموقع عبر IP. جميع الحقوق محفوظة.</p>
+    <div class="footer-links">
+      <a href="#" class="footer-link" id="about-link" onclick="toggleModal()">حول الموقع</a>
+      <a href="#" class="footer-link" id="privacy-link">سياسة الخصوصية</a>
+    </div>
+  </footer>
+
+  <div class="modal" id="about-modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="toggleModal()">×</button>
+      <div class="modal-header">
+        <h2 id="modal-title">حول الموقع</h2>
+      </div>
+      <div id="modal-body">
+        <p>موقع تحديد الموقع عبر IP هو أداة بسيطة وفعالة تساعدك في:</p>
+        <ul class="feature-list">
+          <li>تحديد موقع أي عنوان IP باستخدام واجهات API آمنة</li>
+          <li>عرض مباشر للخريطة بدون مغادرة الصفحة</li>
+          <li>دعم اللغتين العربية والإنجليزية تلقائيًا</li>
+          <li>تحديد معلومات المزود والبلد والمدينة</li>
+          <li>واجهة استخدام سهلة ومميزة للجوال والحاسوب</li>
+          <li>خيارات الوضع الداكن والفاتح</li>
+        </ul>
+        <p>استخدم الموقع مجانًا بدون تسجيل أو إعلانات!</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
