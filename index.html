@@ -54,35 +54,32 @@
     <p id="footer-text">© 2025 تحديد الموقع عبر IP. جميع الحقوق محفوظة.</p>
     <div class="footer-links">
       <a href="#" class="footer-link" id="about-link" onclick="toggleModal()">حول الموقع</a>
-      <a href="#" class="footer-link" id="privacy-link" onclick="togglePrivacyModal()">سياسة الخصوصية</a>
+      <a href="#" class="footer-link" id="privacy-link">سياسة الخصوصية</a>
     </div>
   </footer>
 
-  <!-- نافذة سياسة الخصوصية -->
-  <div class="modal" id="privacy-modal">
+  <div class="modal" id="about-modal">
     <div class="modal-content">
-      <button class="close-modal" onclick="togglePrivacyModal()">×</button>
+      <button class="close-modal" onclick="toggleModal()">×</button>
       <div class="modal-header">
-        <h2>سياسة الخصوصية</h2>
+        <h2 id="modal-title">حول الموقع</h2>
       </div>
       <div id="modal-body">
-        <p>نحن نستخدم أحدث شهادات الأمان لحماية بياناتك.</p>
-        <ul>
-          <li>شهادات SSL/TLS لضمان اتصال آمن ومشفر.</li>
-          <li>التزام تام بحماية خصوصية المعلومات الشخصية.</li>
-          <li>استخدام تقنيات حديثة لمنع أي تهديدات محتملة.</li>
+        <p>موقع تحديد الموقع عبر IP هو أداة بسيطة وفعالة تساعدك في:</p>
+        <ul class="feature-list">
+          <li>تحديد موقع أي عنوان IP باستخدام واجهات API آمنة</li>
+          <li>عرض مباشر للخريطة بدون مغادرة الصفحة</li>
+          <li>دعم اللغتين العربية والإنجليزية تلقائيًا</li>
+          <li>تحديد معلومات المزود والبلد والمدينة</li>
+          <li>واجهة استخدام سهلة ومميزة للجوال والحاسوب</li>
+          <li>خيارات الوضع الداكن والفاتح</li>
         </ul>
-        <p>خصوصيتك وأمان بياناتك هي أولويتنا القصوى.</p>
+        <p>استخدم الموقع مجانًا بدون تسجيل أو إعلانات!</p>
       </div>
     </div>
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-  <script>
-    function togglePrivacyModal() {
-      const modal = document.getElementById('privacy-modal');
-      modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
